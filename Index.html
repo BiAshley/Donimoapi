@@ -222,6 +222,26 @@
         </div>
     </div>
 
+    <!-- Firebase SDK e inicialización -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHKG_RnKHsYSJkcC0qwTKgybLIZIHnYsg",
+            authDomain: "among-us-37ae0.firebaseapp.com",
+            projectId: "among-us-37ae0",
+            storageBucket: "among-us-37ae0.firebasestorage.app",
+            messagingSenderId: "1060181834414",
+            appId: "1:1060181834414:web:cd9a54e8279f466ac34b3f",
+            measurementId: "G-2FH4VSZRGT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
+    <!-- Lógica de la aplicación y escáner IA -->
     <script>
         let stream = null;
         let capturedImage = null;
@@ -251,7 +271,6 @@
 
         updateKeyStatusUI();
 
-        // Prompt de Sistema enfocado exclusivamente en modelo y tecnología LCD vs AMOLED
         const SYSTEM_PROMPT = `
 Eres un técnico experto en reparación de teléfonos celulares y análisis de hardware móvil.
 Tu tarea es analizar la fotografía de la parte trasera (tapa o chasis) de un smartphone enviada por el usuario.
